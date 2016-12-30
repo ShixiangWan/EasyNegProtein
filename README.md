@@ -5,6 +5,7 @@ Getting negative protein sequences after getting the raw fasta file.
 
 * The raw fasta fasta file(e.g. raw_example.fasta);
 * File folder "ALLPFAM", including all protein famliy (fasta format, prepared).
+* File "ProteinIDToPfamIDDatabase", contains the relation between protein ID and PFAM ID.
 
 ##Environment
 
@@ -27,6 +28,7 @@ java -jar protein_negative_sample.jar example.fasta negative.fasta
 * 2016-06-13, version 0.1:
   * standalone running
   * internet running
-
-
-
+* 2016-12-30, version newer:
+  * no temp files
+  * smaller database size
+  * bug fixes
