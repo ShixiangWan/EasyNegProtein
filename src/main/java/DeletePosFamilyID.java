@@ -1,14 +1,13 @@
-package main;
-
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
 public class DeletePosFamilyID {
-    public List<String> run(HashSet<String> pfamHashSet, String pfamALLPath) {
+
+    public List<String> run(HashSet<String> pfamHashSet, String ALLPFAMDatabase) {
         try {
-            File file = new File(pfamALLPath);
+            File file = new File(ALLPFAMDatabase);
             String[] fileList = file.list();
             List<String> negList = new ArrayList<>();
             for (String fileString: fileList) {

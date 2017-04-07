@@ -1,39 +1,39 @@
-package main;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GetNegativeExample {
-	public void run(List<String> negList, String pfamALLPath, String negFile) {
+	public void run(List<String> negList, String pfamALLPath,String negFile) {
 		try {
-			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(negFile));
-			File file = new File(pfamALLPath);
-			File[] list = file.listFiles();
+            File file = new File(pfamALLPath);
+            File[] list = file.listFiles();
+
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(negFile));
             for (File f : list) {
                 if (isNeg(negList, f.toString())) {
-				    BufferedReader bufferedReader = new BufferedReader(new FileReader(f));
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(f));
 				    String line = bufferedReader.readLine();
                     String name_last = "", seq_last = "";
                     while (bufferedReader.ready()) {
                         if (line.length() != 0 && line.charAt(0) == '>') {
                             String name = line;
-                            StringBuffer stringBuffer = new StringBuffer();
+                            StringBuilder stringBuilder = new StringBuilder();
                             line = bufferedReader.readLine();
                             while (bufferedReader.ready() && line.length() == 0)
                                 line = bufferedReader.readLine();
                             while (line.length() != 0 && line.charAt(0) != '>') {
-                                stringBuffer.append(line);
+                                stringBuilder.append(line);
                                 if (bufferedReader.ready()) {
                                     line = bufferedReader.readLine();
                                 } else {
                                     break;
                                 }
                             }
-                            String seq = stringBuffer.toString();
+                            String seq = stringBuilder.toString();
                             if (seq.length() > seq_last.length()) {
                                 name_last = name;
                                 seq_last = seq;

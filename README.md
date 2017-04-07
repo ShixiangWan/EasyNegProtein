@@ -15,7 +15,11 @@ Java, Internet(better)
 if the raw fasta file is "example.fasta", the output file is "negative.fata", then command is: 
 
 ```
-java -jar protein_negative_sample.jar example.fasta negative.fasta
+java -jar EasyNegProtein.jar example.fasta negative.fasta mode
+
+# example.fasta: positive raw fasta file.
+# negative.fasta: negative output fasta file name.
+# mode: 0 or 1. number 0 is no 'ProteinIDToPfamIDDatabase'; if not, number 1.
 ```
 
 ## Principle
@@ -25,10 +29,13 @@ java -jar protein_negative_sample.jar example.fasta negative.fasta
 
 ## Upgrade
 
-* 2016-06-13, version 0.1:
+* 2016-06-13, version 0.10:
   * standalone running
   * internet running
-* 2016-12-30, version newer:
+* 2016-12-30, version 0.11:
   * no temp files
   * smaller database size
   * bug fixes
+* 2017-04-07, version 0.12:
+  * multiple threads
+  * add 'mode' option
