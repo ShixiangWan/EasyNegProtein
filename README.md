@@ -12,16 +12,17 @@ Getting negative protein sequences after getting the raw fasta file.
 Java, Internet(better)
 
 ## Usage
-if the raw fasta file is "example.fasta", the output file is "negative.fata", then command is: 
+Suppose that the raw fasta file is "example.fasta", the output file is "negative.fata".
 
+if the 'ProteinIDToPfamIDDatabase' doesn't exist, then:
 ```
-java -jar EasyNegProtein.jar example.fasta negative.fasta mode
-
-# example.fasta: positive raw fasta file.
-# negative.fasta: negative output fasta file name.
-# mode: 0 or 1. number 0 is no 'ProteinIDToPfamIDDatabase'; if not, number 1.
+java -jar EasyNegProtein.jar example.fasta negative.fasta
 ```
 
+if the 'ProteinIDToPfamIDDatabase' exists, then:
+```
+java -jar -Xmx8000m EasyNegProtein.jar example.fasta negative.fasta 1
+```
 ## Principle
 
 * Extract all positive PFAM information, then choose the longest sequence as negative sequence among the rest of all positive PFAM.
